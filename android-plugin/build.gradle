@@ -50,6 +50,25 @@ dependencies {
     compile group: 'com.zendesk', name: 'sdk', version: '1.11.0.1'
 }
 
+afterEvaluate {
+    bundleDebug.dependsOn "removeBuildConfigDebug"
+    bundleRelease.dependsOn "removeBuildConfigRelease"
+}
+
+task removeBuildConfigDebug(dependsOn: "generateDebugBuildConfig") {
+    doFirst {
+        file("$buildDir/intermediates/classes/debug/com/zendesk/unity/BuildConfig.class").delete()
+        file("$buildDir/generated/source/buildConfig/debug/com/zendesk/unity/BuildConfig.java").delete()
+    }
+}
+
+task removeBuildConfigRelease(dependsOn: "generateReleaseBuildConfig") {
+    doFirst {
+        file("$buildDir/intermediates/classes/release/com/zendesk/unity/BuildConfig.class").delete()
+        file("$buildDir/generated/source/buildConfig/release/com/zendesk/unity/BuildConfig.java").delete()
+    }
+}
+
 task packagePlugin <<  {
 
     // AndroidManifest.xml
