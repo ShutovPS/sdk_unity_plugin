@@ -1,11 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="UnityTheme" parent="ZendeskSdkTheme.Light.DarkActionBar">
+    <style name="ZendeskUnityTheme" parent="ZendeskSdkTheme.Light.DarkActionBar">
 
         <item name="colorPrimary">@color/zendesk_color_primary</item>
         <item name="colorPrimaryDark">@color/zendesk_color_primary_dark</item>
         <item name="colorAccent">@color/zendesk_color_accent</item>
+        <item name="android:windowFullscreen">true</item>
 
         <!--
             If you find that the accent color is not applied to the Dialog, you can
